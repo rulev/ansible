@@ -1,8 +1,14 @@
 ---
 # This playbook contains base plays for all nodes
 
+- name: Disable weak dependencies installation
+  lineinfile:
+    line: "install_weak_deps=False"
+    state: present
+    path: "/etc/dnf/dnf.conf"
+
 - name: Install firewalld
-  yum: name=firewalld state=present
+  yum: name=firewalld state=present install_weak_deps=no
 
 - name: Start the firewalld service
   service: name=firewalld state=started enabled=yes
