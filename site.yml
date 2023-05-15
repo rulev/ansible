@@ -1,0 +1,9 @@
+---
+# This playbook deploys all site configs
+
+- name: apply base configuration to all nodes
+  hosts: all
+  become: true
+
+  roles:
+  - base
