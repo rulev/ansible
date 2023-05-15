@@ -13,3 +13,12 @@
 
 - name: Start the firewalld service
   service: name=firewalld state=started enabled=yes
+
+- name: Add users
+  user:
+    name: "{{ item.name }}"
+    state: present
+    groups: "{{ item.groups }}"
+  loop:
+    - { name: "webadmin1", groups: ["wheel", "apache"] }
+    - { name: "webadmin2", groups: "apache" }
