@@ -7,8 +7,9 @@
     state: present
     path: "/etc/dnf/dnf.conf"
 
-- name: Install firewalld
-  yum: name=firewalld state=present install_weak_deps=no
+- name: Install base packages
+  yum: name="{{ item }}" state=present install_weak_deps=no
+  loop: "{{ base_packages }}"
 
 - name: Start the firewalld service
   service: name=firewalld state=started enabled=yes
