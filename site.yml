@@ -7,3 +7,10 @@
 
   roles:
   - base
+
+- name: configure webservers
+  hosts: webservers
+  become: true
+
+  roles:
+  - webservers

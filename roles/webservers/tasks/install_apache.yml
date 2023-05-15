@@ -1,0 +1,14 @@
+---
+# Install apache
+
+- name: Install apache
+  yum: name=httpd state=present install_weak_deps=no
+
+- name: Apache service state
+  service: name=httpd state=started enabled=yes
+
+- name: Start firewalld
+  service: name=firewalld state=started enabled=yes
+
+- name: Add firewalld rule for apache
+  firewalld: port=80/tcp permanent=true state=enabled immediate=yes
