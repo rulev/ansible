@@ -11,4 +11,4 @@
   service: name=firewalld state=started enabled=yes
 
 - name: Add firewalld rule for apache
-  firewalld: port=80/tcp permanent=true state=enabled immediate=yes
+  firewalld: port={{ httpd_port }}/tcp permanent=true state=enabled immediate=yes
