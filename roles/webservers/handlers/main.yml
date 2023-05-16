@@ -1,0 +1,17 @@
+---
+
+- name: start apache
+  service:
+    name: "{{ apache_svc }}"
+    state: started
+
+- name: setup firewalld
+  firewalld:
+    service: http
+    permanent: true
+    state: enabled
+
+- name: reload firewalld
+  service:
+    name: firewalld
+    state: restarted

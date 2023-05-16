@@ -1,6 +1,14 @@
 ---
 # This playbook deploys all site configs
 
+- hosts: all
+  tasks:
+    - name: Set distribution vars
+      include_vars: os_{{ ansible_os_family }}
+
+    # - debug:
+    #     var: apache_pkg
+
 - name: apply base configuration to all nodes
   hosts: all
   become: true

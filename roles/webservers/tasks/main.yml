@@ -1,2 +1,16 @@
 ---
-- include: install_apache.yml
+# - include: install_apache.yml
+
+- name: Install apache
+  package:
+    name: "{{ apache_pkg }}"
+    state: latest
+
+- name: Enable apache at boot
+  service:
+    name: "{{ apache_svc }}"
+    enabled: yes
+  notify:
+    - start apache
+    - setup firewalld
+    - reload firewalld

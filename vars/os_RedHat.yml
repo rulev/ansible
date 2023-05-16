@@ -1,0 +1,5 @@
+---
+# RedHat specific vars
+
+apache_pkg: httpd
+apache_svc: httpd
