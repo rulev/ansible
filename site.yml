@@ -4,7 +4,7 @@
 - hosts: all
   tasks:
     - name: Set distribution vars
-      include_vars: os_{{ ansible_os_family }}
+      include_vars: os_{{ ansible_os_family }}.yml
 
     # - debug:
     #     var: apache_pkg
