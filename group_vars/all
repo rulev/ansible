@@ -5,3 +5,5 @@ base_packages:
   - python3-libselinux
   - python3-libsemanage
   - firewalld
+
+default_password: "p@$$W0rd"

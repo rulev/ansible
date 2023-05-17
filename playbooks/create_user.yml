@@ -1,9 +1,11 @@
 ---
 - name: Create user
   hosts: all
+  become: true
   tasks:
     - name: Create user
       user:
         name: bob
         state: present
         shell: "/bin/bash"
+        password: "{{ default_password | password_hash('sha512', A512) }}"
