@@ -8,4 +8,4 @@
         name: bob
         state: present
         shell: "/bin/bash"
-        password: "{{ default_password | password_hash('sha512', A512) }}"
+        password: "{{ default_password | password_hash('sha512', 'A512') }}"
