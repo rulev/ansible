@@ -1,0 +1,9 @@
+---
+- name: Create user
+  hosts: all
+  tasks:
+    - name: Create user
+      user:
+        name: bob
+        state: present
+        shell: "/bin/bash"
