@@ -1,5 +1,5 @@
 ---
-# RedHat specific vars
+# Debian specific vars
 
-apache_pkg: httpd
-apache_svc: httpd
+apache_pkg: apache2
+apache_svc: apache2
